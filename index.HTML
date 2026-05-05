@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Accipiter Math - Proyecto Mecatrónica</title>
+    <style>
+        :root {
+            --primario: #00d4ff;
+            --oscuro: #0a0a0a;
+            --gris: #1a1a1a;
+            --texto: #ffffff;
+        }
+
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background-color: var(--oscuro);
+            color: var(--texto);
+            margin: 0;
+            overflow-x: hidden;
+        }
+
+        /* HERO */
+        .hero {
+            height: 80vh;
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.9)), url('fondo.png') center/cover;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        .hero h1 { font-size: 4rem; color: var(--primario); letter-spacing: 5px; margin: 0; }
+
+        /* SECCIONES ZIGZAG (cap1 - cap3) */
+        .container { max-width: 1000px; margin: 80px auto; padding: 20px; }
+
+        .zigzag {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+            margin-bottom: 100px;
+        }
+
+        .zigzag:nth-child(even) { flex-direction: row-reverse; }
+
+        .zigzag-img { flex: 1; }
+        .zigzag-img img { 
+            width: 100%; 
+            border-radius: 10px; 
+            border: 2px solid var(--primario); 
+            box-shadow: 0 0 15px rgba(0,212,255,0.3);
+        }
+
+        .zigzag-text { flex: 1; }
+        .zigzag-text h2 { color: var(--primario); font-size: 2rem; }
+
+        /* CARRUSEL ESTILO STEAM (cap4 - cap7) */
+        .steam-slider {
+            max-width: 900px;
+            margin: 50px auto;
+            position: relative;
+            background: #000;
+            padding: 10px;
+            border-radius: 5px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+
+        .slider-wrapper {
+            display: flex;
+            overflow-x: auto;
+            scroll-behavior: smooth;
+            scrollbar-width: none; /* Ocultar scroll en Firefox */
+        }
+
+        .slider-wrapper::-webkit-scrollbar { display: none; } /* Ocultar scroll en Chrome */
+
+        .slider-item {
+            min-width: 100%;
+            transition: 0.5s;
+        }
+
+        .slider-item img {
+            width: 100%;
+            display: block;
+            border-radius: 3px;
+        }
+
+        /* Botones del Carrusel */
+        .nav-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0, 0, 0, 0.7);
+            color: white;
+            border: none;
+            padding: 15px;
+            cursor: pointer;
+            font-size: 20px;
+            z-index: 10;
+        }
+
+        .nav-btn:hover { background: var(--primario); }
+        .prev { left: -60px; }
+        .next { right: -60px; }
+
+        /* BOTÓN DE DESCARGA */
+        .download-area {
+            text-align: center;
+            padding: 80px 0;
+            background: var(--gris);
+        }
+
+        .btn-download {
+            background: linear-gradient(90deg, #00d4ff, #005f73);
+            color: white;
+            padding: 25px 60px;
+            font-size: 1.8rem;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            transition: 0.3s;
+            display: inline-block;
+        }
+
+        .btn-download:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 30px var(--primario);
+        }
+
+        footer { text-align: center; padding: 40px; font-size: 0.8rem; opacity: 0.6; }
+    </style>
+</head>
+<body>
+
+    <header class="hero">
+        <h1>ACCIPITER MATH</h1>
+        <p>Mechatronics Engineering Project</p>
+    </header>
+
+    <main class="container">
+        <!-- CAP 1 -->
+        <section class="zigzag">
+            <div class="zigzag-img"><img src="cap1.png" alt="Matemáticas"></div>
+            <div class="zigzag-text">
+                <h2>Matemáticas</h2>
+                <p> Los enemigos aparecen con una ecuación matemática sobre su cabeza. Para hacerles daño debes escribir el número correcto con el teclado antes de disparar. Si fallas la respuesta, recibes daño tú. La dificultad de las ecuaciones sube con cada nivel: sumas simples en nivel 1, restas en nivel 2, multiplicaciones y divisiones en nivel 3, y operaciones combinadas en nivel 4..</p>
+            </div>
+        </section>
+
+        <!-- CAP 2 -->
+        <section class="zigzag">
+            <div class="zigzag-img"><img src="cap2.png" alt="Co-op"></div>
+            <div class="zigzag-text">
+                <h2>Co-op</h2>
+                <p>Dos jugadores en la misma pantalla dividida verticalmente. P1 usa teclado y mouse, P2 usa mando PS4. Ambos comparten el mismo mapa y pueden atacar a cualquier enemigo. Si un jugador muere, el otro puede acercarse a su cuerpo para revivirlo. El juego termina solo si ambos están muertos al mismo tiempo.</p>
+            </div>
+        </section>
+
+        <!-- CAP 3 -->
+        <section class="zigzag">
+            <div class="zigzag-img"><img src="cap3.png" alt="Horda"></div>
+            <div class="zigzag-text">
+                <h2>Horda</h2>
+                <p>Sin ecuaciones. Disparas libremente con clic del mouse o gatillo del mando. Los enemigos son más agresivos y no esperan respuesta — atacan en cuanto te ven. El objetivo es sobrevivir y acumular el mayor score posible eliminando oleadas de enemigos.</p>
+            </div>
+        </section>
+
+        <!-- APARTADO ESTILO STEAM (CAP 4 - 7) -->
+        <h2 style="text-align: center; color: var(--primario); margin-top: 100px;">Galería de ACCIPITER</h2>
+        <div class="steam-slider">
+            <button class="nav-btn prev" onclick="moveSlider(-1)">❮</button>
+            <div class="slider-wrapper" id="slider">
+                <div class="slider-item"><img src="cap4.png"></div>
+                <div class="slider-item"><img src="cap5.png"></div>
+                <div class="slider-item"><img src="cap6.png"></div>
+                <div class="slider-item"><img src="cap7.png"></div>
+            </div>
+            <button class="nav-btn next" onclick="moveSlider(1)">❯</button>
+        </div>
+    </main>
+
+    <!-- ÁREA DE DESCARGA -->
+    <div class="download-area">
+        <a href="https://www.mediafire.com/file/xc1xy5q7zs8eje4/Accipiter_Math.exe/file" class="btn-download" target="_blank">
+            DESCARGAR ACCIPITER MATH BETA
+        </a>
+    </div>
+
+    <footer>
+        <p>Andrés Solís Valencia - Universidad Politécnica de Chiapas</p>
+    </footer>
+
+    <script>
+        function moveSlider(direction) {
+            const slider = document.getElementById('slider');
+            const scrollAmount = slider.clientWidth;
+            slider.scrollBy({ left: direction * scrollAmount, behavior: 'smooth' });
+        }
+
+        // Cambio automático cada 5 segundos
+        setInterval(() => {
+            const slider = document.getElementById('slider');
+            if (slider.scrollLeft + slider.clientWidth >= slider.scrollWidth) {
+                slider.scrollTo({ left: 0, behavior: 'smooth' });
+            } else {
+                moveSlider(1);
+            }
+        }, 5000);
+    </script>
+
+</body>
+</html>
